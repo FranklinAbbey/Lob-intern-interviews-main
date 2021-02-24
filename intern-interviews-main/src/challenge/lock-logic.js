@@ -25,6 +25,35 @@ function changeDialValue (index, incrementBy) {
   // call the redirect() function with your name
   // eg: redirect('larry-lobster')
   // the redirect function will only redirect if the lockState is unlocked
+  const MAX_WHEEL_VALUE = 9
+  const MIN_WHEEL_VALUE = 0
+
+  let wheelValue = lockState.wheels[index]
+  wheelValue += incrementBy
+
+  // adjust to limit to single digit
+  switch (wheelValue) {
+    case MAX_WHEEL_VALUE + 1:
+      wheelValue = MIN_WHEEL_VALUE
+      break
+    case MIN_WHEEL_VALUE - 1:
+      wheelValue = MAX_WHEEL_VALUE
+      break
+    default:
+      break
+  }
+
+  lockState.wheels[index] = wheelValue
+
+  if (comboReached(lockState.wheels)) {
+    lockState.locked = false
+    redirect('frank-abbey')
+  }
+}
+
+function comboReached (wheelValues) {
+  // check current wheel values against secret combo
+  return wheelValues.every((value, index) => value === SECRET_COMBO[index])
 }
 
 // let our other modules find our functions
