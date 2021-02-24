@@ -1,0 +1,29 @@
+body {
+  font-family: 'Monospace', Monaco;
+}
+
+.heading-name {
+  text-align: center;
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+
+.table-container {
+  display: flex;
+  background-color: aliceblue;
+  padding: 10px;
+}
+
+.frank-abbey-picture {
+  flex: 0 0 33%;
+  margin-left: 100px;
+}
+
+.frank-abbey-picture img {
+  width: 76%;
+}
+
+.text-main {
+  flex: 1;
+  width: 100%;
+}
